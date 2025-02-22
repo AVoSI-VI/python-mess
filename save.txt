@@ -1,0 +1,59 @@
+def most_common_character(l1: list):
+    b = 0
+    i = 0
+    for blah in l1:
+        c = l1.count(blah)
+        if c > b:
+            b = c
+            i = blah
+    return i
+
+def no_vowels(l1: list):
+    v = ['a', 'e', 'i', 'o', 'u']
+    l2 = []
+    for blah in l1:
+        if blah not in v:
+            l2.append(blah)
+    j = ''.join(l2)
+    return j
+
+    def no_shouting(l1: list):
+    l2 = []
+    for blah in l1:
+        if blah.isupper():
+            pass
+        else:
+            l2.append(blah)
+
+    return l2
+
+def longest_series_of_neighbours(l1: list):
+    l = 1
+    r = 1
+    for blah in range(0, len(l1) - 1):
+   #     print(l1[blah])
+  #      print(l1[blah + 1])
+ #       print(l1[blah - 1])
+        if l1[blah] - l1[blah + 1] == 1 or l1[blah + 1] - l1[blah] == 1:
+            r += 1
+ #       elif l1[blah] - l1[blah - 1] == 1:    
+ #           r += 1
+        else:
+            r = 1
+        l = max(l, r)
+    return l
+
+
+def timeConversion(s):
+    # Write your code here
+
+    if s[-2:] == "AM" and s[:2] == "12": 
+        return "00" + s[2:-2]    
+    elif s[-2:] == "AM": 
+        return s[:-2] 
+
+    elif s[-2:] == "PM" and s[:2] == "12": 
+        return s[:-2] 
+        
+    else:
+        return str(int(s[:2]) + 12) + s[2:8] 
